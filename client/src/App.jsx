@@ -9,10 +9,11 @@ function App() {
   //store the word we want to translate in state
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
+
   //on change function for the from and to states
 
   //on change function for the input of the work we want to translate
-  /*handleChange;*/
+
   //this function will also call out API and get the translation
 
   //on submit funtion that calls our API to get the translation

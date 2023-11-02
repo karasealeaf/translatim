@@ -1,0 +1,76 @@
+body {
+  align-items: center;
+  background: url("assets/background.png") no-repeat center center fixed;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  background-size: cover;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+}
+
+.app-title {
+  margin-bottom: 20px;
+  margin: 0 auto;
+  border-right: 0.15em solid white;
+  letter-spacing: 0.15em;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.5s steps(13, end), blink-caret 0.75sstep-end infinate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.container select,
+.container select option {
+  background-color: transparent;
+  border: 1px solid black;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 2px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100% "";
+}
+
+/*background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px white(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;*/
