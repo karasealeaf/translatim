@@ -22,12 +22,12 @@ app.get("/translate", async (request, response) => {
   const API = `https://api.mymemory.translated.net/get?q=${word}&langpair=${from}|${to}`;
   const res = await axios.get(API);
 
-  const wrangledData = {
+  const wrangleData = {
     translation: res.data.responseData.translatedText,
     match: res.data.responseData.match,
   };
 
-  response.json(wrangledData);
+  response.json(wrangleData);
 });
 
 app.listen(PORT, () => console.log(`App is running PORT ${PORT}`));

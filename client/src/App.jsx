@@ -8,7 +8,7 @@ function App() {
   const [to, setTo] = useState("ar");
   //store the word we want to translate in state
   const [word, setWord] = useState("");
-  const [translation, setTranslation] = useState({});
+  const [translation, setTranslation] = useState("");
   //on change function for the from and to states
 
   //on change function for the input of the work we want to translate
@@ -20,6 +20,7 @@ function App() {
     event.preventDefault();
     const API = `http://localhost:8080/translate?word=${word}&from=${from}&to=${to}`;
     const res = await axios.get(API);
+    setTranslation(res.data.translation);
   }
 
   return (
@@ -51,13 +52,17 @@ function App() {
             <option value="es">Spanish</option>
             <option value="tr">Turkish</option>
           </select>
-          <input placeholder="Translate" />
+          <div className="Output">{translation}</div>
         </div>
+        <button>Submit</button>
       </form>
       {/*Show our translation*/}
       {/*STRETCH: show a gif from the GIPHY API that matches the translation */}
     </>
   );
 }
+
+//make it look like a translation app, make it work on a mobile app.
+//introduce the images
 
 export default App;
