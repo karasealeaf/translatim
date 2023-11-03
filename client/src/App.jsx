@@ -4,7 +4,7 @@ import axios from "axios";
 
 function App() {
   //store our from and to languages in state
-  const [from, setFrom] = useState("ar");
+  const [from, setFrom] = useState("en");
   const [to, setTo] = useState("ar");
   //store the word we want to translate in state
   const [word, setWord] = useState("");
@@ -32,8 +32,8 @@ function App() {
       <form onSubmit={handleTranslate}>
         <div className="container">
           <select onChange={(event) => setFrom(event.target.value)}>
-            <option value="ar">Arabic</option>
             <option value="en">English</option>
+            <option value="ar">Arabic</option>
             <option value="fr">French</option>
             <option value="ko">Korean</option>
             <option value="pl">Polish</option>
@@ -59,8 +59,9 @@ function App() {
           <div className="Output">{translation}</div>
         </div>
         <button>Submit</button>
+        <img src={image} />
       </form>
-      <img src={image} />
+
       {/*Show our translation*/}
       {/*STRETCH: show a gif from the GIPHY API that matches the translation */}
     </>
