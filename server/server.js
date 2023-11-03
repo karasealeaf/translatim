@@ -19,12 +19,17 @@ app.get("/translate", async (request, response) => {
   const { word, from, to } = request.query;
 
   // make our API call
-  const API = `https://api.mymemory.translated.net/get?q=${word}&langpair=${from}|${to}`;
-  const res = await axios.get(API);
+  const API_mymemory = `https://api.mymemory.translated.net/get?q=${word}&langpair=${from}|${to}`;
+  const res_mymemory = await axios.get(API_mymemory);
+
+  const API_unsplash = `https://api.unsplash.com/search/photos?client_id=${process.env.UNSPLASH_ACCESS_KEY}&query=${res_mymemory.data.responseData.translatedText}`;
+  const res_unsplash = await axios.get(API_unsplash);
+  console.log(res_unsplash.data.results[0].urls.regular);
 
   const wrangleData = {
-    translation: res.data.responseData.translatedText,
-    match: res.data.responseData.match,
+    translation: res_mymemory.data.responseData.translatedText,
+    match: res_mymemory.data.responseData.match,
+    image: res_unsplash.data.results[0].urls.regular
   };
 
   response.json(wrangleData);
