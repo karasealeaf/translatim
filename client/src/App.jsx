@@ -21,9 +21,10 @@ function App() {
   async function handleTranslate(event) {
     event.preventDefault();
     //REPLACE WITH RENDER LINK UPTP 8080.
-    const API = `http://localhost:8080/translate?word=${word}&from=${from}&to=${to}`;
+    const API = `https://translatim-5i4l.onrender.com/translate?word=${word}&from=${from}&to=${to}`;
     const res = await axios.get(API);
     setTranslation(res.data.translation);
+    setImage(res.data.image);
   }
 
   return (
@@ -58,8 +59,8 @@ function App() {
           <div className="Output">{translation}</div>
         </div>
         <button>Submit</button>
-        <img src={image} />
       </form>
+      <img src={image} />
       {/*Show our translation*/}
       {/*STRETCH: show a gif from the GIPHY API that matches the translation */}
     </>

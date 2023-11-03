@@ -24,15 +24,15 @@ app.get("/translate", async (request, response) => {
 
   const API_unsplash = `https://api.unsplash.com/search/photos?client_id=${process.env.UNSPLASH_ACCESS_KEY}&query=${res_mymemory.data.responseData.translatedText}`;
   const res_unsplash = await axios.get(API_unsplash);
-  console.log(res_unsplash.data.results[0].urls.regular);
+  // console.log(res_unsplash.data.results[0].urls.regular);
 
-  const wrangleData = {
+  const wrangledData = {
     translation: res_mymemory.data.responseData.translatedText,
     match: res_mymemory.data.responseData.match,
-    image: res_unsplash.data.results[0].urls.regular
+    image: res_unsplash.data.results[0].urls.regular,
   };
 
-  response.json(wrangleData);
+  response.json(wrangledData);
 });
 
 app.listen(PORT, () => console.log(`App is running PORT ${PORT}`));
